@@ -1,0 +1,87 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.employee._id ? 'Edit Employee' : 'New Employee'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.employeeForm" class="form-horizontal" ng-submit="vm.save(vm.form.employeeForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="firstname">First Name</label>
+          <input name="firstname" type="text" ng-model="vm.employee.firstname" id="firstname" class="form-control" placeholder="First Name" required>
+          <div ng-messages="vm.form.employeeForm.firstname.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Employee first name is required.</p>
+          </div>
+
+          <label class="control-label" for="lastname">Last Name</label>
+          <input name="lastname" type="text" ng-model="vm.employee.lastname" id="lastname" class="form-control" placeholder="Last Name" required>
+          <div ng-messages="vm.form.employeeForm.lastname.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Employee last name is required.</p>
+          </div>
+
+          <label class="control-label" for="email">Email</label>
+          <input name="email" type="text" ng-model="vm.employee.email" id="email" class="form-control" placeholder="Email" required>
+          <div ng-messages="vm.form.employeeForm.email.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Employee email is required.</p>
+          </div>
+
+          <label class="control-label" for="birthdate">Birthdate</label>
+          <div class="row">
+            <div class="col-md-6">
+              <p class="input-group">
+                <input name="birthdate" id="birthdate" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="vm.employee.birthdate" max-date="date.dateOptions.maxDate" min-date="date.dateOptions.minDate" date-disabled="weekendDisable(date,mode)" close-text="Close" show-weeks="false" is-open="birthdate.opened" ng-click="birthdate.opened=true" ng-focus="birthdate.opened=true" ng-disabled required>
+              </p>
+            </div>
+          </div>
+          <div ng-messages="vm.form.employeeForm.birthdate.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Employee birthdate is required.</p>
+          </div>
+
+          <label class="control-label" for="gender">Gender</label>
+          <div class="row">
+            <div class="col-md-6">
+              <p class="input-group">
+                <select name="gender" type="text" ng-model="vm.employee.gender" id="gender" class="form-control" required>
+                  <option value="" selected=""></option>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+                </select>
+              </p>
+            </div>
+          </div>
+          <div ng-messages="vm.form.employeeForm.gender.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Employee gender is required.</p>
+          </div>
+
+          <label class="control-label" for="gender">Department</label>
+          <div class="row">
+            <div class="col-md-6">
+              <input name="dept" type="text" ng-model="vm.employee.dept" id="dept" class="form-control" placeholder="Department" required>
+              <div ng-messages="vm.form.employeeForm.dept.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Employee department is required.</p>
+              </div>
+            </div>
+          </div>
+
+          <label class="control-label" for="gender">Hiredate</label>
+          <div class="row">
+            <div class="col-md-6">
+              <p class="input-group">
+                <input name="hiredate" id="hiredate" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="vm.employee.hiredate" max-date="date.dateOptions.maxDate" min-date="date.dateOptions.minDate" date-disabled="weekendDisable(date,mode)" ng-required="true" close-text="Close" show-weeks="false" is-open="hiredate.opened" ng-click="hiredate.opened=true" ng-focus="hiredate.opened=true" ng-disabled />
+              </p>
+            </div>
+          </div>
+          <div ng-messages="vm.form.employeeForm.hiredate.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Employee hiredate is required.</p>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.employee._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
