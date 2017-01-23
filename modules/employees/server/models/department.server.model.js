@@ -13,21 +13,12 @@ var DepartmentSchema = new Schema({
   // Department model fields
   name: {
     type: String,
-    trim: true,
     default: '',
     required: 'Please fill department name.',
+    trim: true,
   },
   del_flg: {
     type: Number,
-    default: 0,
-  },
-  created: {
-    type: Date,
-    default: Date.now
-  },
-  user: {
-    type: Schema.ObjectId,
-    ref: 'User'
   }
 });
 

@@ -34,11 +34,6 @@ var EmployeeSchema = new Schema({
     type: Number,
     required: 'Please fill gender',
   },
-  dept: {
-    type: Schema.ObjectId,
-    ref: 'Department',
-    required: 'Please fill department',
-  },
   birthdate: {
     type: Date,
     trim: true,
