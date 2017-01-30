@@ -6,10 +6,11 @@
     .module('employees')
     .controller('EmployeesController', EmployeesController);
 
-  EmployeesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'employeeResolve', 'Departments'];
+  EmployeesController.$inject = ['$scope', '$state', '$window', 'Authentication', 'employeeResolve'];
 
-  function EmployeesController ($scope, $state, $window, Authentication, employee, Departments) {
+  function EmployeesController ($scope, $state, $window, Authentication, employee) {
     var vm = this;
+    console.log(employee);
 
     $scope.dt = new Date();
     $scope.hiredate = {
@@ -18,9 +19,6 @@
     $scope.birthdate = {
       opened: false
     };
-
-    console.log(this);
-
     $scope.today = function() {
       $scope.dt = new Date();
     };
@@ -47,7 +45,8 @@
 
     vm.authentication = Authentication;
     vm.employee = employee;
-    vm.employee.dept = null;
+    vm.employee.hiredate = new Date(vm.employee.hiredate);
+    vm.employee.birthdate = new Date(vm.employee.birthdate);
     vm.error = null;
     vm.form = {};
     vm.remove = remove;

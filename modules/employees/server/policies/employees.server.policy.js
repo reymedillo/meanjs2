@@ -18,12 +18,6 @@ exports.invokeRolesPolicies = function () {
       resources: '/api/employees',
       permissions: '*'
     }, {
-      resources: '/api/departments',
-      permissions: ['*']
-    }, {
-      resources: '/api/departments/:departmentId',
-      permissions: ['*']
-    }, {
       resources: '/api/employees/:employeeId',
       permissions: '*'
     }]
@@ -32,12 +26,6 @@ exports.invokeRolesPolicies = function () {
     allows: [{
       resources: '/api/employees',
       permissions: ['get', 'post']
-    }, {
-      resources: '/api/departments',
-      permissions: ['*']
-    }, {
-      resources: '/api/departments/:departmentId',
-      permissions: ['*']
     }, {
       resources: '/api/employees/:employeeId',
       permissions: ['get']

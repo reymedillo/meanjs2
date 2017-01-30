@@ -34,6 +34,12 @@ var EmployeeSchema = new Schema({
     type: Number,
     required: 'Please fill gender',
   },
+  dept: {
+    type: String,
+    default: '',
+    required: 'Please fill Department',
+    trim: true
+  },
   birthdate: {
     type: Date,
     trim: true,
