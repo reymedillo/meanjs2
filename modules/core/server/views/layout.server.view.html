@@ -39,6 +39,10 @@
   <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top navbar-default"></header>
   <section class="content">
     <section class="container">
+      <div class="{{logged_in}}"></div>
+      <div ng-show="{{logged_in}} == true">
+      true
+      </div>
       {% block content %}{% endblock %}
     </section>
   </section>
